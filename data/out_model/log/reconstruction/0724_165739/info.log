@@ -1,0 +1,336 @@
+2023-07-24 16:57:39,760 - train - INFO - E2VIDRecurrent(
+  (unetrecurrent): UNetRecurrent(
+    (head): ConvLayer(
+      (conv2d): Conv2d(5, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    )
+    (encoders): ModuleList(
+      (0): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(32, 64, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (1): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(64, 128, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (2): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(128, 256, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (resblocks): ModuleList(
+      (0-1): 2 x ResidualBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (decoders): ModuleList(
+      (0): UpsampleConvLayer(
+        (conv2d): Conv2d(256, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+      (1): UpsampleConvLayer(
+        (conv2d): Conv2d(128, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+      (2): UpsampleConvLayer(
+        (conv2d): Conv2d(64, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+    )
+    (pred): ConvLayer(
+      (conv2d): Conv2d(32, 1, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+Trainable parameters: 10710401
+2023-07-24 16:57:47,661 - trainer - INFO -     epoch          : 1
+2023-07-24 16:57:47,662 - trainer - INFO -     loss           : 1.6663284301757812
+2023-07-24 16:57:47,662 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:47,662 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:47,662 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:47,663 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:47,663 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:47,663 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:47,663 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:47,663 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:47,663 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:47,664 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:47,664 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:47,664 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:47,664 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:47,664 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:47,664 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:47,664 - trainer - INFO -     loss/unknown   : 1.6663284301757812
+2023-07-24 16:57:47,665 - trainer - INFO -     perceptual_loss/unknown: 0.6918026208877563
+2023-07-24 16:57:47,665 - trainer - INFO -     temporal_consistency_loss/unknown: 0.9745258688926697
+2023-07-24 16:57:47,794 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch1.pth ...
+2023-07-24 16:57:47,921 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:48,190 - py.warnings - WARNING - C:\Users\10123\.conda\envs\ecnn\lib\site-packages\torch\nn\functional.py:4236: UserWarning: Default grid_sample and affine_grid behavior has changed to align_corners=False since 1.3.0. Please specify align_corners=True if the old behavior is desired. See the documentation of grid_sample for details.
+  warnings.warn(
+
+2023-07-24 16:57:48,887 - trainer - INFO -     epoch          : 2
+2023-07-24 16:57:48,887 - trainer - INFO -     loss           : 1.5127557516098022
+2023-07-24 16:57:48,887 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:48,888 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:48,888 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:48,888 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:48,888 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:48,888 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:48,888 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:48,889 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:48,889 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:48,889 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:48,889 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:48,889 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:48,890 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:48,890 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:48,891 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:48,891 - trainer - INFO -     loss/unknown   : 1.5127557516098022
+2023-07-24 16:57:48,891 - trainer - INFO -     perceptual_loss/unknown: 0.6672760844230652
+2023-07-24 16:57:48,891 - trainer - INFO -     temporal_consistency_loss/unknown: 0.8454796671867371
+2023-07-24 16:57:49,022 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch2.pth ...
+2023-07-24 16:57:49,160 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:49,955 - trainer - INFO -     epoch          : 3
+2023-07-24 16:57:49,955 - trainer - INFO -     loss           : 1.3074889183044434
+2023-07-24 16:57:49,955 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:49,955 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:49,955 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:49,955 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:49,955 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:49,955 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:49,956 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:49,956 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:49,956 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:49,956 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:49,956 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:49,956 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:49,956 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:49,957 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:49,957 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:49,957 - trainer - INFO -     loss/unknown   : 1.3074889183044434
+2023-07-24 16:57:49,957 - trainer - INFO -     perceptual_loss/unknown: 0.6730701327323914
+2023-07-24 16:57:49,957 - trainer - INFO -     temporal_consistency_loss/unknown: 0.6344187259674072
+2023-07-24 16:57:50,112 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch3.pth ...
+2023-07-24 16:57:50,254 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:51,050 - trainer - INFO -     epoch          : 4
+2023-07-24 16:57:51,050 - trainer - INFO -     loss           : 1.1839231252670288
+2023-07-24 16:57:51,051 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:51,051 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:51,051 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:51,051 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:51,051 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:51,051 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:51,052 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:51,052 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:51,052 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:51,052 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:51,052 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:51,052 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:51,052 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:51,052 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:51,053 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:51,053 - trainer - INFO -     loss/unknown   : 1.1839231252670288
+2023-07-24 16:57:51,053 - trainer - INFO -     perceptual_loss/unknown: 0.6721646189689636
+2023-07-24 16:57:51,053 - trainer - INFO -     temporal_consistency_loss/unknown: 0.5117585062980652
+2023-07-24 16:57:51,200 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch4.pth ...
+2023-07-24 16:57:51,339 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:52,193 - trainer - INFO -     epoch          : 5
+2023-07-24 16:57:52,194 - trainer - INFO -     loss           : 1.0934677124023438
+2023-07-24 16:57:52,194 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:52,194 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:52,194 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:52,194 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:52,194 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:52,194 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:52,195 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:52,195 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:52,195 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:52,195 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:52,195 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:52,195 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:52,195 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:52,195 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:52,196 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:52,196 - trainer - INFO -     loss/unknown   : 1.0934677124023438
+2023-07-24 16:57:52,196 - trainer - INFO -     perceptual_loss/unknown: 0.6992129683494568
+2023-07-24 16:57:52,196 - trainer - INFO -     temporal_consistency_loss/unknown: 0.39425477385520935
+2023-07-24 16:57:52,344 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch5.pth ...
+2023-07-24 16:57:52,485 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:54,287 - trainer - INFO -     epoch          : 6
+2023-07-24 16:57:54,288 - trainer - INFO -     loss           : 0.9799368381500244
+2023-07-24 16:57:54,288 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:54,288 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:54,289 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:54,289 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:54,289 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:54,289 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:54,289 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:54,289 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:54,289 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:54,290 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:54,290 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:54,290 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:54,290 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:54,290 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:54,290 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:54,291 - trainer - INFO -     loss/unknown   : 0.9799368381500244
+2023-07-24 16:57:54,291 - trainer - INFO -     perceptual_loss/unknown: 0.6731410026550293
+2023-07-24 16:57:54,291 - trainer - INFO -     temporal_consistency_loss/unknown: 0.3067958354949951
+2023-07-24 16:57:54,443 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch6.pth ...
+2023-07-24 16:57:54,583 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:55,381 - trainer - INFO -     epoch          : 7
+2023-07-24 16:57:55,382 - trainer - INFO -     loss           : 0.8852834701538086
+2023-07-24 16:57:55,382 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:55,382 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:55,382 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:55,383 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:55,383 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:55,383 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:55,383 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:55,385 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:55,385 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:55,385 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:55,385 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:55,385 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:55,385 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:55,386 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:55,386 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:55,386 - trainer - INFO -     loss/unknown   : 0.8852834701538086
+2023-07-24 16:57:55,386 - trainer - INFO -     perceptual_loss/unknown: 0.681512176990509
+2023-07-24 16:57:55,387 - trainer - INFO -     temporal_consistency_loss/unknown: 0.20377132296562195
+2023-07-24 16:57:55,526 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch7.pth ...
+2023-07-24 16:57:55,662 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:56,449 - trainer - INFO -     epoch          : 8
+2023-07-24 16:57:56,449 - trainer - INFO -     loss           : 0.8303579092025757
+2023-07-24 16:57:56,450 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:56,450 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:56,450 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:56,450 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:56,450 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:56,450 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:56,451 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:56,451 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:56,451 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:56,451 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:56,451 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:56,451 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:56,451 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:56,451 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:56,452 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:56,452 - trainer - INFO -     loss/unknown   : 0.8303579092025757
+2023-07-24 16:57:56,452 - trainer - INFO -     perceptual_loss/unknown: 0.6980034708976746
+2023-07-24 16:57:56,452 - trainer - INFO -     temporal_consistency_loss/unknown: 0.1323544681072235
+2023-07-24 16:57:56,593 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch8.pth ...
+2023-07-24 16:57:56,732 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:57:57,527 - trainer - INFO -     epoch          : 9
+2023-07-24 16:57:57,528 - trainer - INFO -     loss           : 0.7949884533882141
+2023-07-24 16:57:57,528 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:57:57,528 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:57:57,528 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:57:57,529 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:57:57,529 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:57:57,529 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:57:57,530 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:57:57,530 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:57:57,530 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:57:57,530 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:57:57,531 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:57:57,531 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:57:57,531 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:57:57,531 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:57:57,531 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:57:57,531 - trainer - INFO -     loss/unknown   : 0.7949884533882141
+2023-07-24 16:57:57,532 - trainer - INFO -     perceptual_loss/unknown: 0.6928817629814148
+2023-07-24 16:57:57,532 - trainer - INFO -     temporal_consistency_loss/unknown: 0.10210667550563812
+2023-07-24 16:57:57,672 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch9.pth ...
+2023-07-24 16:57:57,807 - trainer - INFO - Saving current best: model_best.pth ...
+2023-07-24 16:58:02,046 - trainer - INFO -     epoch          : 10
+2023-07-24 16:58:02,046 - trainer - INFO -     loss           : 0.8008253574371338
+2023-07-24 16:58:02,046 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:58:02,047 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:58:02,047 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:58:02,047 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:58:02,047 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:58:02,047 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:58:02,047 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:58:02,048 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:58:02,048 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:58:02,048 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:58:02,048 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:58:02,048 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:58:02,048 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:58:02,048 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:58:02,048 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:58:02,049 - trainer - INFO -     loss/unknown   : 0.8008253574371338
+2023-07-24 16:58:02,049 - trainer - INFO -     perceptual_loss/unknown: 0.7195956110954285
+2023-07-24 16:58:02,049 - trainer - INFO -     temporal_consistency_loss/unknown: 0.08122974634170532
+2023-07-24 16:58:02,049 - trainer - INFO -     val_loss       : 0.7944589257240295
+2023-07-24 16:58:02,049 - trainer - INFO -     val_loss/esim  : 0
+2023-07-24 16:58:02,049 - trainer - INFO -     val_perceptual_loss/esim: 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_temporal_consistency_loss/esim: 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_loss/ijrr  : 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_perceptual_loss/ijrr: 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_temporal_consistency_loss/ijrr: 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_loss/mvsec : 0
+2023-07-24 16:58:02,050 - trainer - INFO -     val_perceptual_loss/mvsec: 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_temporal_consistency_loss/mvsec: 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_loss/eccd  : 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_perceptual_loss/eccd: 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_temporal_consistency_loss/eccd: 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_loss/hqfd  : 0
+2023-07-24 16:58:02,051 - trainer - INFO -     val_perceptual_loss/hqfd: 0
+2023-07-24 16:58:02,052 - trainer - INFO -     val_temporal_consistency_loss/hqfd: 0
+2023-07-24 16:58:02,052 - trainer - INFO -     val_loss/unknown: 0.7944589257240295
+2023-07-24 16:58:02,052 - trainer - INFO -     val_perceptual_loss/unknown: 0.776552677154541
+2023-07-24 16:58:02,052 - trainer - INFO -     val_temporal_consistency_loss/unknown: 0.017906242981553078
+2023-07-24 16:58:02,211 - trainer - INFO - Saving checkpoint: C:\Users\10123\Desktop\ECNN\data\out_model\models\reconstruction\0724_165739\checkpoint-epoch10.pth ...
+2023-07-24 16:58:04,028 - trainer - INFO -     epoch          : 11
+2023-07-24 16:58:04,029 - trainer - INFO -     loss           : 0.844554603099823
+2023-07-24 16:58:04,029 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:58:04,030 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:58:04,030 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:58:04,030 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:58:04,030 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:58:04,030 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:58:04,030 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:58:04,030 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:58:04,030 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:58:04,031 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:58:04,031 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:58:04,031 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:58:04,031 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:58:04,031 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:58:04,031 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:58:04,031 - trainer - INFO -     loss/unknown   : 0.844554603099823
+2023-07-24 16:58:04,031 - trainer - INFO -     perceptual_loss/unknown: 0.777976393699646
+2023-07-24 16:58:04,031 - trainer - INFO -     temporal_consistency_loss/unknown: 0.06657823175191879
+2023-07-24 16:58:04,845 - trainer - INFO -     epoch          : 12
+2023-07-24 16:58:04,846 - trainer - INFO -     loss           : 0.8451823592185974
+2023-07-24 16:58:04,846 - trainer - INFO -     loss/esim      : 0
+2023-07-24 16:58:04,846 - trainer - INFO -     perceptual_loss/esim: 0
+2023-07-24 16:58:04,846 - trainer - INFO -     temporal_consistency_loss/esim: 0
+2023-07-24 16:58:04,846 - trainer - INFO -     loss/ijrr      : 0
+2023-07-24 16:58:04,846 - trainer - INFO -     perceptual_loss/ijrr: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     temporal_consistency_loss/ijrr: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     loss/mvsec     : 0
+2023-07-24 16:58:04,847 - trainer - INFO -     perceptual_loss/mvsec: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     temporal_consistency_loss/mvsec: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     loss/eccd      : 0
+2023-07-24 16:58:04,847 - trainer - INFO -     perceptual_loss/eccd: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     temporal_consistency_loss/eccd: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     loss/hqfd      : 0
+2023-07-24 16:58:04,847 - trainer - INFO -     perceptual_loss/hqfd: 0
+2023-07-24 16:58:04,847 - trainer - INFO -     temporal_consistency_loss/hqfd: 0
+2023-07-24 16:58:04,848 - trainer - INFO -     loss/unknown   : 0.8451823592185974
+2023-07-24 16:58:04,848 - trainer - INFO -     perceptual_loss/unknown: 0.7813642024993896
+2023-07-24 16:58:04,848 - trainer - INFO -     temporal_consistency_loss/unknown: 0.06381813436746597

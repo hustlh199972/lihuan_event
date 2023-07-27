@@ -1,0 +1,55 @@
+2023-07-24 16:50:30,414 - train - INFO - E2VIDRecurrent(
+  (unetrecurrent): UNetRecurrent(
+    (head): ConvLayer(
+      (conv2d): Conv2d(5, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    )
+    (encoders): ModuleList(
+      (0): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(32, 64, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (1): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(64, 128, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (2): RecurrentConvLayer(
+        (conv): ConvLayer(
+          (conv2d): Conv2d(128, 256, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
+        )
+        (recurrent_block): ConvLSTM(
+          (Gates): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (resblocks): ModuleList(
+      (0-1): 2 x ResidualBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (decoders): ModuleList(
+      (0): UpsampleConvLayer(
+        (conv2d): Conv2d(256, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+      (1): UpsampleConvLayer(
+        (conv2d): Conv2d(128, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+      (2): UpsampleConvLayer(
+        (conv2d): Conv2d(64, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      )
+    )
+    (pred): ConvLayer(
+      (conv2d): Conv2d(32, 1, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+Trainable parameters: 10710401
